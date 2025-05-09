@@ -12,7 +12,7 @@ Todo o circuito apresentado abaixo foi construído no **LTspice**, e os resultad
 
 Uma vez que nossa carga é **puramente resistiva**, como se pode ver no circuito montado acima, a **tensão eficaz** (RMS) na carga será igual ao valor da **tensão contínua de entrada** da fonte CC, porém com forma de onda **quadrada**, devido à comutação dos inversores:
 
-> **V<sub>ef_carga</sub> = V<sub>ef_fonte</sub>**
+> **Vef_carga = Vef_fonte**
 
 ---
 
@@ -26,9 +26,7 @@ Uma vez que nossa carga é **puramente resistiva**, como se pode ver no circuito
 
 Para os valores de **tensão de pico** e **tensão eficaz** dos harmônicos da onda quadrada presente na saída do inversor, temos:
 
-<!-- Inserir fórmula aqui -->
-```math
-V_n = \frac{4V_{cc}}{n\pi}, \quad n = 1, 3, 5, 7, \dots
+{Vn = (4 * Vcc) / (n * π), para n = 1, 3, 5, 7, ...}
 
 ---
 
@@ -50,20 +48,17 @@ O valor de β irá depender do resultado esperado no seu circuito. Quanto maior 
 
 Considerando a nova forma de onda que agora utiliza a técnica de PWM de pulso único, o valor eficaz da tensão de saída pode ser encontrado pela seguinte fórmula:
 
-```math
-V_{ef} = V_{cc} \cdot \sqrt{\frac{1 - \frac{2\alpha}{\pi}}}
+{Vef = Vcc * sqrt(1 - (2 * α / π))}
+
+---
 
 ### Cálculo dos Harmônicos para a Nova Forma de Onda
 
 Para os valores de **tensão de pico** e **tensão eficaz** dos harmônicos da nova forma de onda presente na saída do inversor, temos:
 
-$$
-V_{n,\ pico} = \frac{4E}{n\pi} \cdot \cos(n\beta)
-$$
+{Vn_pico = (4 * E) / (n * π) * cos(n * β)}
 
-$$
-V_{n,\ ef} = \frac{4E}{\sqrt{2} \cdot n\pi} \cdot \cos(n\beta)
-$$
+{Vn_ef = (4 * E) / (√2 * n * π) * cos(n * β)}
 
 Onde:
 
@@ -73,6 +68,3 @@ Onde:
 
 > ℹ️ **Observação:** Dependendo do valor de `β`, **alguns harmônicos podem ser cancelados**.  
 > Além disso, ao aproximarmos `β` de seu valor máximo (`π/2`), a **tensão eficaz tende a zero** e a **THD (Total Harmonic Distortion)** tende ao **infinito**.
-
-
-
