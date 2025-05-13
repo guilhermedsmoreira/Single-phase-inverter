@@ -41,8 +41,6 @@ Uma vez que o valor eficaz da tensão na saída do inversor será o mesmo valor 
 
 Para isso, podemos utilizar a técnica conhecida como **PWM de pulso único**, que baseia-se em variarmos a forma de onda mantendo a tensão contínua de entrada em um valor constante.
 
-(((Pulso único -> significado: 1 único pulso por semiciclo
-
 > A forma de onda irá variar conforme o nosso **ângulo de condução** (Alfa), que assume valores `0 < Alfa < π/2`.
 
 O valor de Alfa irá depender do resultado esperado no seu circuito. Quanto maior Alfa, **maior será a largura do pulso**, ou seja, **maior será o tempo que o sinal permanecerá em nível alto (ON)**.
