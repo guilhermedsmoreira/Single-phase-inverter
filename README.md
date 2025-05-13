@@ -6,7 +6,7 @@ Todo o circuito apresentado abaixo foi construído no **LTspice**, e os resultad
 
 Para a construção desse circuito, foi utilizado 4 transistores do tipo MOSFETs, uma fonte de tensão contínua com valor eficaz de 5V e um resistor de 10kohm. Vale ressaltar que cada MOSFET apresenta sua própria fonte de pulso para que possam ser controlados. Essa técnica, conhecida como PWM, será detalhada mais adiante.
 
-![Circuito Ponte H](Circuit_Bridge H.png)
+![Circuito Ponte H](Circuit_Bridge.png)
 
 ---
 
@@ -18,7 +18,7 @@ Sendo nossa carga **puramente resistiva**, como se pode ver no circuito montado 
 
 Ao simular nosso circuito, podemos confirmar a teoria apresentada.
 
-![Forma de Onda](onda_saida.png)
+![Forma de Onda](VpowersupplyXload_waves.png)
 
 Conforme imagem acima, nossa fonte de tensão está entregando ao sistema 5Vcc. Consequentemente, em nossa carga temos uma tensão com o mesmo valor eficaz de 5V porém quadrada.
 
