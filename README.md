@@ -22,7 +22,7 @@ Ao simular nosso circuito, podemos confirmar a teoria apresentada.
 
 Conforme imagem acima, nossa fonte de tensão está entregando ao sistema 5Vcc. Consequentemente, em nossa carga temos uma tensão com o mesmo valor eficaz de 5V porém quadrada.
 
-Podemos notar um pequeno ruído ou deformação em nossa onda na carga, mas não se preocupe! Trata-se apenas dos inversores trabalhando (explicar melhor essa parte).
+Podemos notar um pequeno ruído ou deformação em nossa onda na carga, mas trata-se apenas dos inversores trabalhando (não irei entrar em detalhes nesse aritgo, talvez num outro)
 
 ---
 
@@ -41,13 +41,13 @@ Uma vez que o valor eficaz da tensão na saída do inversor será o mesmo valor 
 
 Para isso, podemos utilizar a técnica conhecida como **PWM de pulso único**, que baseia-se em variarmos a forma de onda mantendo a tensão contínua de entrada em um valor constante.
 
-> A forma de onda irá variar conforme o nosso **ângulo de condução** (Alfa), que assume valores `0 < Alfa < π/2`.
+> A forma de onda irá variar conforme o nosso **ângulo de condução** (α), que assume valores `0 < α < π/2`.
 
-O valor de Alfa irá depender do resultado esperado no seu circuito. Quanto maior Alfa, **maior será a largura do pulso**, ou seja, **maior será o tempo que o sinal permanecerá em nível alto (ON)**.
+O valor de α irá depender do resultado esperado no seu circuito. Quanto maior α, **maior será a largura do pulso**, ou seja, **maior será o tempo que o sinal permanecerá em nível alto (ON)**.
 
 Parei aqui. Alfa é basicamente Ton da fonte no LT. Adicione imagens disso.
 
-⚠️ **Mas cuidado:** quanto maior o valor de Alfa, **maior será o número de harmônicos** na saída!
+⚠️ **Mas cuidado:** quanto maior o valor de α, **maior será o número de harmônicos** na saída!
 
 ---
 
@@ -63,15 +63,15 @@ Considerando a nova forma de onda que agora utiliza a técnica de PWM de pulso �
 
 Para os valores de **tensão de pico** e **tensão eficaz** dos harmônicos da nova forma de onda presente na saída do inversor, temos:
 
-{Vn_pico = (4 * E) / (n * π) * cos(n * β)}
+{Vn_pico = (4 * E) / (n * π) * cos(n * α)}
 
-{Vn_ef = (4 * E) / (√2 * n * π) * cos(n * β)}
+{Vn_ef = (4 * E) / (√2 * n * π) * cos(n * α)}
 
 Onde:
 
 - `E` é a tensão de entrada (fonte contínua),
 - `n` é o número do harmônico (somente ímpares: 1, 3, 5, ...),
-- `β` é o ângulo de condução.
+- `α` é o ângulo de condução.
 
-> ℹ️ **Observação:** Dependendo do valor de `β`, **alguns harmônicos podem ser cancelados**.  
-> Além disso, ao aproximarmos `β` de seu valor máximo (`π/2`), a **tensão eficaz tende a zero** e a **THD (Total Harmonic Distortion)** tende ao **infinito**.
+> ℹ️ **Observação:** Dependendo do valor de `α`, **alguns harmônicos podem ser cancelados**.  
+> Além disso, ao aproximarmos `α` de seu valor máximo (`π/2`), a **tensão eficaz tende a zero** e a **THD (Total Harmonic Distortion)** tende ao **infinito**.
