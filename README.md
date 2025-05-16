@@ -8,7 +8,7 @@ To build this circuit, we used four N-channel MOSFET transistors, a DC voltage s
 
 ![Circuito Ponte H](Circuit_Bridge.png)
 
-![All waves](All_waves.png)
+![All waves]()
 
 
 ---
