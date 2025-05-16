@@ -8,6 +8,9 @@ To build this circuit, we used four N-channel MOSFET transistors, a DC voltage s
 
 ![Circuito Ponte H](Circuit_Bridge.png)
 
+![All waves](All_waves.png)
+
+
 ---
 
 🔍 Analysis of the Resistive Load
@@ -22,7 +25,11 @@ After simulating the circuit, the results confirm the theory.
 
 As shown in the image above, the voltage source supplies 5V DC. Consequently, the load receives a square wave with the same RMS value of 5V.
 
-There is a slight noise or distortion visible in the load waveform, but this is simply the result of the inverter switching (we won't go into detail on this here).
+There is a slight noise or distortion visible in the load waveform. These spikes basically are due to the capacitance internal to the MOSFETs .............
+
+As expected, in a purely resistive circuit, the voltage and current waveforms are in phase. Therefore, the current waveform across the load has the same shape as the voltage waveform.
+
+![Current load](Current_load_wave.png)
 
 ---
 
@@ -36,7 +43,7 @@ Vn,rms = (4 * Vdc) / (√2)*n * π), for n = 1, 3, 5, 7, ...
 
 ---
 
-### 🔁 Inverter Output Voltage
+### 🔁 Inverter Output Voltage and single-pulse PWM 
 
 Since the effective output voltage of the inverter is equal to the input voltage, as shown earlier, how can we vary the inverter's output RMS voltage?
 
@@ -49,6 +56,11 @@ The value of α depends on the desired output. The greater the α, the wider the
 ![Ângulo de Condução](alfa_cond.png)
 
 ⚠️ Caution: A larger conduction angle also introduces more harmonics into the output waveform!
+
+For the PWM control signals, an amplitude of 10 V and a period of 50 μs (corresponding to a switching frequency of 20 kHz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
+For M2 and M3, the same parameters were adopted; however, a dead time was introduced between the complementary switching signals to prevent shoot-through conditions in the H-bridge.
+
+![Ângulo de Condução](Vpwm12_pulses.png)
 
 ---
 
