@@ -6,30 +6,30 @@ The entire circuit shown below was built in LTspice, and the results were export
 
 To build this circuit, we used four N-channel MOSFET transistors, a DC voltage source with an effective value of 5V, and a 10kΩ resistor. It's worth noting that each MOSFET is driven by its own pulse source for control. This technique, known as PWM (Pulse Width Modulation), will be explained later.
 
-![Circuito Ponte H]()
+![Circuit_Bridge H](Circuit_BridgeH.png)
 
-![All waves]()
+![All waves](All_waves.png)
 
 
 ---
 
-🔍 Analysis of the Resistive Load
+🔍 Analysis of the Load
 
 Since our load is purely resistive, as seen in the circuit above, theoretically, the RMS voltage across the load should equal the DC input voltage from the source. However, due to inverter switching, the waveform will be square-shaped. Thus:
 
-> **Vef_rms = Vrms_powersupply**
+> **Vrms_load = Vrms_powersupply**
 
 After simulating the circuit, the results confirm the theory.
 
-![Forma de Onda]()
+![Forma de Onda](VpowersupplyXload_waves.png)
 
 As shown in the image above, the voltage source supplies 5V DC. Consequently, the load receives a square wave with the same RMS value of 5V.
 
-There is a slight noise or distortion visible in the load waveform. These spikes basically are due to the capacitance internal to the MOSFETs .............
+A slight distortion or noise can be observed in the waveform across the load. These spikes are primarily caused by the intrinsic capacitances of the MOSFETs and their switching behavior.
 
 As expected, in a purely resistive circuit, the voltage and current waveforms are in phase. Therefore, the current waveform across the load has the same shape as the voltage waveform.
 
-![Current load](C)
+![Current load](Current_load_wave.png)
 
 ---
 
@@ -53,14 +53,17 @@ To achieve this, we can use a technique called single-pulse PWM, which consists 
 
 The value of α depends on the desired output. The greater the α, the wider the pulse, meaning the signal stays at a high level (ON) for a longer time.
 
-![Ângulo de Condução]()
+![Ângulo de Condução](alfa_cond.png)
 
 ⚠️ Caution: A larger conduction angle also introduces more harmonics into the output waveform!
 
-For the PWM control signals, an amplitude of 10 V and a period of 50 μs (corresponding to a switching frequency of 20 kHz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
+For the PWM control signals, an amplitude of 10 V and a period of 20ms (corresponding to a switching frequency of 50 Hz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
 For M2 and M3, the same parameters were adopted; however, a dead time was introduced between the complementary switching signals to prevent shoot-through conditions in the H-bridge.
 
-![PWM iamges)
+![Pulses](Vpwm12_pulses.png)
+
+Using the .meas function in LTspice, the RMS voltage value was obtained as 4.9934 V, which is very close to the expected 5 V. To test the conduction angle (α) concept, a new simulation was run with a reduced pulse width (Ton = 0.00499 s). In this case, the RMS voltage across the resistor dropped to 3.259 V, and the waveform appeared as a more distorted square wave, confirming the influence of α on the effective output voltage.
+
 
 ---
 
