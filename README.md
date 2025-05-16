@@ -6,7 +6,7 @@ The entire circuit shown below was built in LTspice, and the results were export
 
 To build this circuit, we used four N-channel MOSFET transistors, a DC voltage source with an effective value of 5V, and a 10kΩ resistor. It's worth noting that each MOSFET is driven by its own pulse source for control. This technique, known as PWM (Pulse Width Modulation), will be explained later.
 
-![Circuito Ponte H](Circuit_Bridge.png)
+![Circuito Ponte H]()
 
 ![All waves]()
 
@@ -21,7 +21,7 @@ Since our load is purely resistive, as seen in the circuit above, theoretically,
 
 After simulating the circuit, the results confirm the theory.
 
-![Forma de Onda](VpowersupplyXload_waves.png)
+![Forma de Onda]()
 
 As shown in the image above, the voltage source supplies 5V DC. Consequently, the load receives a square wave with the same RMS value of 5V.
 
@@ -29,7 +29,7 @@ There is a slight noise or distortion visible in the load waveform. These spikes
 
 As expected, in a purely resistive circuit, the voltage and current waveforms are in phase. Therefore, the current waveform across the load has the same shape as the voltage waveform.
 
-![Current load](Current_load_wave.png)
+![Current load](C)
 
 ---
 
@@ -53,14 +53,14 @@ To achieve this, we can use a technique called single-pulse PWM, which consists 
 
 The value of α depends on the desired output. The greater the α, the wider the pulse, meaning the signal stays at a high level (ON) for a longer time.
 
-![Ângulo de Condução](alfa_cond.png)
+![Ângulo de Condução]()
 
 ⚠️ Caution: A larger conduction angle also introduces more harmonics into the output waveform!
 
 For the PWM control signals, an amplitude of 10 V and a period of 50 μs (corresponding to a switching frequency of 20 kHz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
 For M2 and M3, the same parameters were adopted; however, a dead time was introduced between the complementary switching signals to prevent shoot-through conditions in the H-bridge.
 
-![Ângulo de Condução](Vpwm12_pulses.png)
+![PWM iamges)
 
 ---
 
