@@ -4,7 +4,7 @@ As a case study, we will use a full-bridge inverter, also known as an H-Bridge, 
 
 The entire circuit shown below was built in LTspice, and the results were exported here to compare with the theoretical explanations.
 
-To build this circuit, we used 4 MOSFET transistors, a DC voltage source with an effective value of 5V, and a 10kΩ resistor. It's worth noting that each MOSFET is driven by its own pulse source for control. This technique, known as PWM (Pulse Width Modulation), will be explained later.
+To build this circuit, we used four N-channel MOSFET transistors, a DC voltage source with an effective value of 5V, and a 10kΩ resistor. It's worth noting that each MOSFET is driven by its own pulse source for control. This technique, known as PWM (Pulse Width Modulation), will be explained later.
 
 ![Circuito Ponte H](Circuit_Bridge.png)
 
@@ -14,7 +14,7 @@ To build this circuit, we used 4 MOSFET transistors, a DC voltage source with an
 
 Since our load is purely resistive, as seen in the circuit above, theoretically, the RMS voltage across the load should equal the DC input voltage from the source. However, due to inverter switching, the waveform will be square-shaped. Thus:
 
-> **Vef_carga = Vef_fonte**
+> **Vef_rms = Vrms_powersupply**
 
 After simulating the circuit, the results confirm the theory.
 
