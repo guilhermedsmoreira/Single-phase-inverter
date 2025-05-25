@@ -49,20 +49,23 @@ Since the effective output voltage of the inverter is equal to the input voltage
 
 To achieve this, we can use a technique called single-pulse PWM, which consists of modifying the waveform while keeping the input DC voltage constant.
 
-> The waveform is adjusted using the conduction angle (α), which ranges from 0 < α < π/2.
+The waveform is adjusted using the conduction angle (α), which ranges from 0 < α < π/2.
 
 The value of α depends on the desired output. The greater the α, the wider the pulse, meaning the signal stays at a high level (ON) for a longer time.
+
+⚠️ In single-pulse PWM, each half-cycle of the fundamental waveform contains only one rectangular pulse. In our simulation, this was ensured by setting the pulse period to 20 ms (i.e., the period of a 50 Hz signal) and a pulse width (Ton) of 9.99 ms. This confirms that each half-cycle contains a single pulse, matching the theoretical definition of single-pulse PWM.
 
 ![Ângulo de Condução](alfa_cond.png)
 
 ⚠️ Caution: A larger conduction angle also introduces more harmonics into the output waveform!
 
-For the PWM control signals, an amplitude of 10 V and a period of 20ms (corresponding to a switching frequency of 50 Hz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
+For the PWM control signals, an amplitude of 10 V and a period of 20 ms (corresponding to a switching frequency of 50 Hz) were used. A duty cycle of 0.5 was applied to the gate signals of MOSFETs M1 and M4.
 For M2 and M3, the same parameters were adopted; however, a dead time was introduced between the complementary switching signals to prevent shoot-through conditions in the H-bridge.
 
 ![Pulses](Vpwm12_pulses.png)
 
-Using the .meas function in LTspice, the RMS voltage value was obtained as 4.9934 V, which is very close to the expected 5 V. To test the conduction angle (α) concept, a new simulation was run with a reduced pulse width (Ton = 0.00499 s). In this case, the RMS voltage across the resistor dropped to 3.259 V, and the waveform appeared as a more distorted square wave, confirming the influence of α on the effective output voltage.
+Using the .meas function in LTspice, the RMS voltage value was obtained as 4.9934 V, which is very close to the expected 5 V.
+To test the conduction angle (α) concept, a new simulation was run with a reduced pulse width (Ton = 0.00499 s). In this case, the RMS voltage across the resistor dropped to 3.259 V, and the waveform appeared as a more distorted square wave, confirming the influence of α on the effective output voltage.
 
 
 ---
