@@ -6,6 +6,8 @@ The entire circuit shown below was built in LTspice, and the results were export
 
 To build this circuit, we used four N-channel MOSFET transistors, a DC voltage source with an effective value of 5V, and a 10kΩ resistor. It's worth noting that each MOSFET is driven by its own pulse source for control. This technique, known as PWM (Pulse Width Modulation), will be explained later.
 
+In this project, we apply a specific control method called single-pulse PWM (Pulse Width Modulation), which consists of using only one pulse per half-cycle of the output waveform. 
+
 ![Circuit_Bridge H](Circuit_BridgeH.png)
 
 ![All waves](All_waves.png)
